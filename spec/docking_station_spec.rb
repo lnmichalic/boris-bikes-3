@@ -22,17 +22,17 @@ describe DockingStation do
 	end
 	it "Raises error if dock is at capacity" do
 		station = DockingStation.new
-		20.times do
+		DockingStation::DEFAULT_CAPACITY.times do
 			bike = Bike.new
 			station.dock(bike)
 		end
 		expect{station.dock(Bike.new)}.to raise_error("Dock is at capacity")
 	end
 	it "Lets us dock 20 bikes" do
-		20.times {subject.dock(Bike.new)}
-		expect(subject.docked_bikes.length).to eq 20
+		DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
+		expect(subject.docked_bikes.length).to eq DockingStation::DEFAULT_CAPACITY
 	end
 	it "shows that there is a default capacity" do
-		expect(subject.capacity).to eq 20
+		expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
 	end
 end
