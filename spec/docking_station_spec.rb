@@ -41,5 +41,13 @@ describe DockingStation do
 		expect(station.capacity).not_to eq DockingStation::DEFAULT_CAPACITY
 	end
 
+	it "Shows that the capacity can be changed" do
+
+		station = DockingStation.new
+		station.capacity = 21
+		expect(station.capacity).to eq 21
+
+	end
+
 
 end
