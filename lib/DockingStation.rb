@@ -20,7 +20,7 @@ attr_reader :bike
   end
 
   def at_capacity?
-    @full = true if @bike
+    true if @bike
   end
 
 end
