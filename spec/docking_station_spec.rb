@@ -35,4 +35,11 @@ describe DockingStation do
 	it "shows that there is a default capacity" do
 		expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
 	end
+
+	it "Shows capacity has been set by system admin" do
+		station = DockingStation.new(10)
+		expect(station.capacity).not_to eq DockingStation::DEFAULT_CAPACITY
+	end
+
+
 end
