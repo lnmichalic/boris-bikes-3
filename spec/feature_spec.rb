@@ -1,4 +1,4 @@
-require './lib/DockingStation'
+require './lib/docking_station'
 
 p bike = Bike.new
 
