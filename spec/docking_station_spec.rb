@@ -38,12 +38,12 @@ describe DockingStation do
 		expect { subject.release_bike }.to raise_error('No bikes available')
 	end
 
-	it "Responds to at_capacity?" do
-		expect(subject).to respond_to :at_capacity?
-	end
+	# it "Does not respond to full?" do
+	# 	expect(subject).to respond_to :full?
+	# end
 
 #	it 'at_capacity returns false' do
-#		expect(subject.at_capacity?).to eq false
+#		expect(subject.full?).to eq false
 #	end
 
 	it "Raises error if dock is at capacity" do
@@ -59,4 +59,14 @@ describe DockingStation do
 		20.times {subject.dock(Bike.new)}
 		expect(subject.docked_bikes.length).to eq 20
 	end
+
+	# it "Check capacity" do
+	# 	expect(subject.capacity).to eq 20
+	# end
+
+	# it "Does not respond to empty" do
+	# 	expect(subject).to respond_to :empty?
+	# end
+	
+
 end
