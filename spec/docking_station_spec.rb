@@ -6,12 +6,12 @@ describe DockingStation do
 	 is_expected.to respond_to :release_bike
 	end
 	it "releases a bike" do
-		bike = Bike.new
+		bike = double("bike")
 		subject.dock(bike)
 		expect(subject.release_bike).to eq bike
 	end
 	it "Docks a bike" do
-		bike = Bike.new
+		bike = double("bike")
 		expect(subject.dock(bike)).to eq [bike]
 	end
 	it "has a bike" do
@@ -23,7 +23,7 @@ describe DockingStation do
 	it "Raises error if dock is at capacity" do
 		station = DockingStation.new
 		DockingStation::DEFAULT_CAPACITY.times do
-			bike = Bike.new
+			bike = double("bike")
 			station.dock(bike)
 		end
 		expect{station.dock(Bike.new)}.to raise_error("Dock is at capacity")
@@ -45,14 +45,14 @@ describe DockingStation do
 		expect(station.capacity).to eq 21
 	end
 	it "Doesn't release a broken bike" do
-		bike = Bike.new
+		bike = double("bike")
 		bike.report_broken
 		subject.dock(bike)
 		expect{subject.release_bike}.to raise_error('No working bikes available')
 	end
 	it "releases only working bikes" do
-		bike = Bike.new
-		bike2 = Bike.new
+		bike = double("bike")
+		bike2 = double("bike")
 		subject.dock(bike)
 		bike2.report_broken
 		subject.dock(bike2)
