@@ -6,4 +6,4 @@ bike = Bike.new
 bike.report_broken
 station.dock(bike)
 station.release_bike
-p station.bikes
+station.bikes
