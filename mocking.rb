@@ -1,3 +1,12 @@
+class ObjectUnderTest
+  def initialize(other_object)
+    @other_object = other_object
+  end
+
+  def delegated_method
+    @other_object.dangerous_operation
+  end
+end
 
 # MANUAL IMPLEMENTATION OF A DOUBLE #
 ### DOUBLE OBJECT ###
@@ -16,7 +25,7 @@ describe ClassThatMakesObjectsUnderTest do
 
   describe '#delegated_method' do
     it 'return some values' do
-      
+      expect(object_under_test.delegated_method).to eq :expected_value
     end
   end
 end
